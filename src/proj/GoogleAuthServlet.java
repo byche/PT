@@ -27,15 +27,17 @@ import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.jsr107cache.GCacheFactory;
 
-public class InitHomePageServlet extends HttpServlet {
+public class GoogleAuthServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private DatastoreService datastore;
 	private final static String MSG_KEY="msgkey";
+	
+	private static String googleID = "631926326971-kca9jdv0uot5oghths0h2je81qvipfft.apps.googleusercontent.com";
 
 	
 	
-    public InitHomePageServlet() {
+    public GoogleAuthServlet() {
         super();
         // TODO Auto-generated constructor stub
         datastore = DatastoreServiceFactory.getDatastoreService();
@@ -53,7 +55,7 @@ public class InitHomePageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("coucou");
+		
 		Cache cache=null;
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		
@@ -64,55 +66,26 @@ public class InitHomePageServlet extends HttpServlet {
 	      	        CacheFactory cacheFactory = CacheManager.getInstance().getCacheFactory();
 	        cache = cacheFactory.createCache(props);
 	
-	     } catch (CacheException e) {
-	     }
+	     } catch (CacheException e) {}
 	    
-	    String msg=getWelcomeMsg(datastore,cache);
-		
-		
-        
-        System.out.println(msg);
-        
-        
-		
-		response.setContentType("text/plain");
-		response.getWriter().println(msg);
-		
-		
-		}
-	
-		
-		
-	
+	    
+	    System.out.println("bonjour je suis le servlet googleAuth");
+	    
+	    System.out.println(request.toString());
 
-	private String getWelcomeMsg(DatastoreService datastore, Cache cache) {
-	if( cache.get(MSG_KEY)!=null){
-		return (String)cache.get(MSG_KEY);
-	}else{
-		Filter msgWelcomeFilter =
-				  new FilterPredicate(AddWelcomeServlet.WELCOME_MSG_MSG_ENTITY_PROPERTY,
-				                      FilterOperator.NOT_EQUAL,
-				                      null);
-		
-		// Use class Query to assemble a query
-		Query q = new Query(AddWelcomeServlet.WELCOME_MSG_ENTITY_KEY).setFilter(msgWelcomeFilter);
-		
-		
-		// Use PreparedQuery interface to retrieve results
-		PreparedQuery pq = datastore.prepare(q);
-
-		String welcomeString="";
-		for (Entity result : pq.asIterable()) {
-			welcomeString = (String) result.getProperty(AddWelcomeServlet.WELCOME_MSG_MSG_ENTITY_PROPERTY);
-			System.out.println("0010101010101111100101010101000000");
-
-	        System.out.println(welcomeString);
-		}
-		
-		cache.put(MSG_KEY, welcomeString);
-		return welcomeString;
+	    
+	    
+	    
 	}
-}
+	    
+	   
+
+	
+		
+		
+	
+
+
 	
 }
 

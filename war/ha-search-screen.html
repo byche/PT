@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="631926326971-kca9jdv0uot5oghths0h2je81qvipfft.apps.googleusercontent.com">
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
@@ -25,13 +26,14 @@
           </form>
         </div>
           
-        <div class=" col-md-2 col-sm-2 col-xs-2 ">
-            <form class="navbar-form navbar-left"  style="width:100%" role="search">
-                <button type="submit" class="btn btn-primary">G</button>
-                <button type="submit" class="btn btn-success">Y</button>
-                <button type="submit" class="btn btn-warning">O</button>
-          </form>
-        </div>
+        <div id="googleSignIn">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <button id="signOutButton" onclick="signOut();">Sign out</button>
+        <font color="white"><h1  align="right" id="userName"></h1></font>
+        
+        </div>  
+        
+        
       </nav>
       <!-- ------------------------------------------- HEADER ZONE END ------------------------------------------- -->
       
@@ -100,5 +102,7 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/code.js"></script>    
   </body>
 </html>

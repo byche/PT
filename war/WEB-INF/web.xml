@@ -23,6 +23,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>GoogleAuth</servlet-name>
+		<servlet-class>proj.GoogleAuthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GoogleAuth</servlet-name>
+		<url-pattern>/googleAuth</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>labelWelcome</servlet-name>
 		<servlet-class>root.AddWelcomeServlet</servlet-class>
 	</servlet>
@@ -55,6 +64,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	
 	
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 </web-app>

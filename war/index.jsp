@@ -37,7 +37,9 @@
 	
 	<footer>
 	<h1>fzefezfezf</h1>
-	<p>Message: ${message}</p></footer>
+	<p>Message: ${data.message}</p></footer>
+	
+	<div id=""
 
 
 
@@ -47,6 +49,7 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/code.js"></script>
 	<script>$.get("/homepage")</script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 
