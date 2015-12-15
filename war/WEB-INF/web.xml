@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>PersonalTrainerApp</servlet-name>
+		<servlet-class>proj.PersonalTrainerAppServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PersonalTrainerApp</servlet-name>
+		<url-pattern>/personaltrainerapp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InitHomePage</servlet-name>
+		<servlet-class>proj.InitHomePageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitHomePage</servlet-name>
+		<url-pattern>/homepage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>labelWelcome</servlet-name>
+		<servlet-class>root.AddWelcomeServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>labelWelcome</servlet-name>
+		<url-pattern>/addWelcome</url-pattern>
+	</servlet-mapping>
+
+
+ 	<servlet>
+		<servlet-name>CheckUser</servlet-name>
+		<servlet-class>root.CheckUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckUser</servlet-name>
+		<url-pattern>/checkUser</url-pattern>
+	</servlet-mapping>
+ 
+
+	<servlet>
+		<servlet-name>LiveGaeProject</servlet-name>
+		<servlet-class>root.LiveGaeProjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LiveGaeProject</servlet-name>
+		<url-pattern>/livegaeproject</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
